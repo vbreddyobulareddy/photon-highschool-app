@@ -7,13 +7,27 @@ export const DetailSnapComponent: FC<DetailSnapComponentProps> = ({
 }) => {
   return (
     <>
-      <div className="card w-full bg-base-100 shadow-xl" data-testid="details_snap_component">
+      <div
+        className="card w-full bg-base-100 shadow-xl"
+        data-testid="details_snap_component"
+      >
         <div className="card-body">
           <h2 className="card-title">{record?.school_name}</h2>
-          <div className="grid">
+          <div className="grid grid-cols-4">
             {record && (
               <>
-                <div>{`${record.overview_paragraph}`}</div>
+                {Object.entries(record).map(([key, value], index) => {
+                  return (
+                    <div
+                      className="border-2 border-red-100 m-4 p-4"
+                      key={`rec_details_${index}`}
+                    >
+                      <div>{key}</div>
+                      <div className="border-b-2 mb-4" />
+                      <div>{value}</div>
+                    </div>
+                  );
+                })}
               </>
             )}
           </div>

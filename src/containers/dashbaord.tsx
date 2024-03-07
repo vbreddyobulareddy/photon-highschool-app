@@ -24,7 +24,9 @@ const DashboardContainer = () => {
       renderer: (row: HSRecord) => {
         return (
           <>
-            <Link to={`/${row.dbn}`}>{row.school_name}</Link>
+            <Link to={`/${row.dbn}`}>
+              <button className="btn btn-link">{row.school_name}</button>
+            </Link>
           </>
         );
       },
